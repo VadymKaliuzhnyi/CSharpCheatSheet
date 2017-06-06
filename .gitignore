@@ -4,7 +4,9 @@
 *.pdb
 *.cache
 *.txt
+*.suo
 obj/
 bin/
 Debug/
 Release/
+.vs/
