@@ -1,6 +1,10 @@
-
-OutVariables/\.vs/OutVariables/v15/\.suo
-
-OutVariables/OutVariables/bin/
-
-OutVariables/OutVariables/obj/
+*.dll
+*.exe
+*.config
+*.pdb
+*.cache
+*.txt
+obj/
+bin/
+Debug/
+Release/
