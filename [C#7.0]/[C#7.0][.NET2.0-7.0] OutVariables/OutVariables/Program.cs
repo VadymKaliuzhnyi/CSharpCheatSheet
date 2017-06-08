@@ -1,4 +1,5 @@
-﻿using static System.Console;
+﻿using System.Linq;
+using static System.Console;
 
 namespace OutVariables
 {
@@ -36,11 +37,37 @@ namespace OutVariables
                       $"yNewVarApproach is: {yNewApproach}");
             #endregion
 
+            #region NewStyleWildcard
+            // If some of the parameters that a function returns in out is not needed
+            // you can use the discard operator '_'
+            SomeMethod(out var xNewWildcardApproach, out var _ ); // I only care about first parameter
+            #endregion
+
             #region UseCase
             // Real world use case
 
             IsItCanBeParsedToInt("Here we are passing wrong input");
             IsItCanBeParsedToInt("137");
+            #endregion
+
+            #region NewStyleWithAnonymousType
+            // new out variables can be used even with anonymous type
+            // StackOverflow example:
+            // https://stackoverflow.com/documentation/c%23/1936/c-sharp-7-0-features/6326/out-var-declaration#t=201706081042420760979
+
+            var a = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            var groupedByMod2 = a.Select(x => new
+            {
+                Source = x,
+                Mod2 = x % 2
+            })
+                                 .GroupBy(x => x.Mod2)
+                                 .ToDictionary(g => g.Key, g => g.ToArray());
+            if (groupedByMod2.TryGetValue(1, out var oddElements))
+            {
+                WriteLine(oddElements.Length);
+            }
+
             #endregion
 
             ReadKey();
