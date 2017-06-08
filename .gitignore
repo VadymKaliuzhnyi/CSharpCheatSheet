@@ -5,6 +5,7 @@
 *.cache
 *.txt
 *.suo
+*.user
 obj/
 bin/
 Debug/
