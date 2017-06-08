@@ -70,6 +70,19 @@ namespace OutVariables
 
             #endregion
 
+            #region NewStyleLimitations
+            // https://stackoverflow.com/documentation/c%23/1936/c-sharp-7-0-features/6326/out-var-declaration#t=20170608110416266232
+            // Note that out var declarations are of limited use in LINQ queries
+            // as expressions are interpreted as expression lambda bodies,
+            // so the scope of the introduced variables is limited to these lambdas.
+            // For example, the following code will not work:
+
+            // var nums =
+            // from item in seq
+            // let success = int.TryParse(item, out var tmp)
+            // select success ? tmp : 0; // Error: The name 'tmp' does not exist in the current context
+            #endregion
+
             ReadKey();
         }
     }
