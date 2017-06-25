@@ -1,6 +1,6 @@
 *.dll
 *.exe
-*.config
+*.exe.config
 *.pdb
 *.cache
 *.txt
