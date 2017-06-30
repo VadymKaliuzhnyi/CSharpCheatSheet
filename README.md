@@ -10,8 +10,8 @@
 -Visual Studio 2005 only supports .NET 2.0 out-of-the-box. It can be updated to support .NET 3.0.
 **[Link to proof article]{http://weblogs.asp.net/scottgu/archive/2007/06/20/vs-2008-multi-targeting-support.aspx}**
 
-## [Overview of .NET Framework release history]{https://en.wikipedia.org/wiki/.NET_Framework#Release_history}
+## [Overview of .NET Framework release history](https://en.wikipedia.org/wiki/.NET_Framework#Release_history)
 
-## [C# versions]{https://en.wikipedia.org/wiki/C_Sharp_(programming_language)#Versions}
+## [C# versions](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)#Versions)
 
-## [Visual Studio history] {https://en.wikipedia.org/wiki/Microsoft_Visual_Studio#History}
+## [Visual Studio history] (https://en.wikipedia.org/wiki/Microsoft_Visual_Studio#History)
