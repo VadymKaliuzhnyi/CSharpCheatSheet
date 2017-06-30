@@ -8,10 +8,10 @@
 - Unfortunately the VS 2008 multi-targeting support only works with .NET 2.0, .NET 3.0 and .NET 3.5 - and not against older versions of the framework. The reason for this is that there were significant CLR engine changes between .NET 1.x and 2.x that make debugging very difficult to support.
 - In the end the costing of the work to support that was so large and impacted so many parts of Visual Studio that we weren't able to add 1.1 support in this release.
 -Visual Studio 2005 only supports .NET 2.0 out-of-the-box. It can be updated to support .NET 3.0.
-**[Link to proof article]{http://weblogs.asp.net/scottgu/archive/2007/06/20/vs-2008-multi-targeting-support.aspx}**
+- **[Link to proof article](http://weblogs.asp.net/scottgu/archive/2007/06/20/vs-2008-multi-targeting-support.aspx)**
 
 ## [Overview of .NET Framework release history](https://en.wikipedia.org/wiki/.NET_Framework#Release_history)
 
 ## [C# versions](https://en.wikipedia.org/wiki/C_Sharp_(programming_language)#Versions)
 
-## [Visual Studio history] (https://en.wikipedia.org/wiki/Microsoft_Visual_Studio#History)
+## [Visual Studio history](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio#History)
