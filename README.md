@@ -17,7 +17,7 @@
 - VS 2008 has special support (in project properties) for which framework version you want to target: 2.0, 3.0 or 3.5
 - You can use most C# 3 features when targeting .NET 2.0 or 3.0, but not quite all
 - **[Link to csharpindepth](http://csharpindepth.com/Articles/Chapter1/Versions.aspx)**
-
+- [.net 1.1 with 2.0 compatibility](https://msdn.microsoft.com/en-us/library/ms994381.aspx#docum_topic4)
 
 ## [Overview of .NET Framework release history](https://en.wikipedia.org/wiki/.NET_Framework#Release_history)
 
