@@ -1,6 +1,5 @@
 ﻿namespace OutVariables
 {
-
     static partial class Program
     {
         // The out keyword causes arguments to be passed by reference. This is like the ref keyword,

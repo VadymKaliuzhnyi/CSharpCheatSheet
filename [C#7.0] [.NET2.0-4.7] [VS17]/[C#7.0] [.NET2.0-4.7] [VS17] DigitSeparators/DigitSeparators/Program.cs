@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 
 namespace DigitSeparators
 {
@@ -18,9 +19,9 @@ namespace DigitSeparators
             int hexadecimal = 0xDD_44_73;
             int dec = 145_00_97_9;
 
-            Console.WriteLine($"0b1101_1101_0100_0100_0111_0011 converted to int is {binary}");
-            Console.WriteLine($"0xDD_44_73 converted to int is {hexadecimal}");
-            Console.WriteLine($"145_00_97_9 converted to inc is {dec}");
+            WriteLine($"0b1101_1101_0100_0100_0111_0011 converted to int is {binary}");
+            WriteLine($"0xDD_44_73 converted to int is {hexadecimal}");
+            WriteLine($"145_00_97_9 converted to inc is {dec}");
             #endregion
 
             #region HowMuchUnderscores?
@@ -31,8 +32,8 @@ namespace DigitSeparators
             int dec2 = 1_000_000; // Million
             int dec3 = 1___0_0_0___0_0_0; // Million
 
-            Console.WriteLine(Environment.NewLine);
-            Console.WriteLine($"1_000_000 is the same million ({dec2}) as 1___0_0_0___0_0_0 ({dec3})");
+            WriteLine(Environment.NewLine);
+            WriteLine($"1_000_000 is the same million ({dec2}) as 1___0_0_0___0_0_0 ({dec3})");
             #endregion
 
             #region Exceptions
