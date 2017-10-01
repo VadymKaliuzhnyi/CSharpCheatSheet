@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using static System.Console;
-using System.Collections.Generic;
 
 namespace OutVariables
 {
@@ -60,15 +59,15 @@ namespace OutVariables
             // new out variables can be used even with anonymous type
 
             // for the sake of example imagine you are working with some array and running linq thru it
-            var a = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            var groupedByMod2 = a
+            var range = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            var groupedByMod2 = range
                 .Select(x => new
                 {
                     Source = x,
-                    Mod2 = x % 2
+                    ModBy2 = x % 2
                 })
-                .GroupBy(x => x.Mod2)
-                .ToDictionary(g => g.Key, g => g.ToArray());
+                .GroupBy(input => input.ModBy2)
+                .ToDictionary(k => k.Key, v => v.ToArray());
 
             // Now imagine you want to use TryGetValue method for "groupedByMod2" variable
             // http://referencesource.microsoft.com/#mscorlib/system/collections/generic/dictionary.cs,2e5bc6d8c0f21e67
@@ -92,10 +91,10 @@ namespace OutVariables
 
             // System.Collections.Generic.Dictionary<int, <>f__AnonymousType0<int, int>[]>
             var temp = new[] {
-                                new { Source = 108, Mod2 = 5 }
+                                new { Source = 108, ModBy2 = 5 }
                               };
 
-            // now you can pass it with "out" modifier to the abovementioned method.
+            // now you can pass it with "out" modifier to the above mentioned method.
             if (groupedByMod2.TryGetValue(1, out temp))
             {
                 WriteLine(temp.Length);
@@ -105,25 +104,43 @@ namespace OutVariables
             #region C# 7.0
             // in C# 7.0 you can just type "out var" and compiler will do everything for you
 
-            if (groupedByMod2.TryGetValue(1, out var oddElements))
+            if (groupedByMod2.TryGetValue(1, out var oddEl))
             {
-                WriteLine(oddElements.Length);
+                WriteLine(oddEl.Length);
             }
             #endregion
 
             #endregion
 
             #region NewStyleLimitations
-            // https://stackoverflow.com/documentation/c%23/1936/c-sharp-7-0-features/6326/out-var-declaration#t=20170608110416266232
-            // Note that out var declarations are of limited use in LINQ queries
-            // as expressions are interpreted as expression lambda bodies,
-            // so the scope of the introduced variables is limited to these lambdas.
-            // For example, the following code will not work:
+            // In current version of C# (7.0) out var declarations are of limited use in LINQ queries.
+            // Since expressions are interpreted as expression lambdas,
+            // so the scope of the input variables is limited to these lambdas.
 
-            // var nums =
-            // from item in seq
-            // let success = int.TryParse(item, out var tmp)
-            // select success ? tmp : 0; // Error: The name 'tmp' does not exist in the current context
+            var SomeRange = new[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            // var CanItBeParsedToInt =
+            // from item in SomeRange
+
+            // let result = int.TryParse(item.ToString(), out var tmp)
+            //// "Out variable and pattern variable declarations are not allowed within a query clause."
+
+            // select result ? tmp : 0;
+            ///// "The name does not exist in the current context"
+
+            // some developers notes:
+            // https://github.com/dotnet/csharplang/blob/master/meetings/2016/LDM-2016-12-07-14.md#expression-variables-in-query-expressions
+            // We won't have time to do this feature in C# 7.0.
+            // If we want to leave ourselves room to do it in the future, we need to make sure
+            // that we don't allow expression variables in query clauses to mean something else today,
+            // that would contradict such a future.
+            // The current semantics is that expression variables in query clauses are scoped
+            // to only the query clause.That means two subsequent query clauses can use the same
+            // name in expression variables, for instance.That is inconsistent with a future that
+            // allows those variables to share a scope across query clause boundaries.
+            // Thus, if we want to allow this in the future we have to put in some restrictions
+            // in C# 7.0 to protect the design space.
+
             #endregion
 
             ReadKey();
