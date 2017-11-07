@@ -6,6 +6,7 @@
 *.txt
 *.suo
 *.user
+*.leu
 obj/
 bin/
 Debug/
